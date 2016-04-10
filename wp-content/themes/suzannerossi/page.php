@@ -47,7 +47,9 @@ $gt3_theme_pagebuilder = gt3_get_theme_pagebuilder(get_the_ID());
                         <div class="page_title_block">
 							<h1 class="title"><?php the_title(); ?></h1>
                         </div>
-                    <?php } ?>                    
+                    <?php } else { ?>              
+							<h1 class="title"><?php the_title(); ?></h1>
+							      <?php } ?>      
                         <div class="contentarea">
                             <?php
                             the_content(__('Read more!', 'theme_localization'));
