@@ -1,246 +1,372 @@
-/*
-*  Gallery
-*
-*  @description: 
-*  @since: 3.5.8
-*  @created: 17/01/13
-*/
-
 (function($){
 	
-	var _gallery = acf.fields.gallery,
-		_media = acf.media;
-	
-	
 	/*
-	*  Add
+	*  Gallery
 	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
+	*  static model for this field
+	*
+	*  @type	event
+	*  @date	28/07/13
+	*
 	*/
 	
-	_gallery.add = function( image ){
+	
+	// reference
+	var _media = acf.media;
 	
 	
-		// vars
-		var gallery = _media.div,
-			tpml = gallery.find('.tmpl-thumbnail').html();
+	// field
+	acf.fields.gallery = {
+		
+		$el : null,
+		
+		o : {},
+		
+		set : function( o ){
+			
+			// merge in new option
+			$.extend( this, o );
+			
+			
+			// find input
+			this.$input = this.$el.children('input[type="hidden"]');
+			
+			
+			// get options
+			this.o = acf.helpers.get_atts( this.$el );
+			
+			
+			// wp library query
+			this.o.query = {};
+			
+			
+			// library
+			if( this.o.library == 'uploadedTo' )
+			{
+				this.o.query.uploadedTo = acf.o.post_id;
+			}
+			
+			
+			// view
+			this.o.view = 'grid';
+			if( this.$el.hasClass('view-list') )
+			{
+				this.o.view = 'list';
+			}
+			
+			
+			// return this for chaining
+			return this;
+			
+		},
+		init : function(){
+
+			// is clone field?
+			if( acf.helpers.is_clone_field(this.$input) )
+			{
+				return;
+			}
+			
+			
+			// update count
+			this.render();
+			
+			
+			// sortable
+			this.$el.find('> .thumbnails > .inner').sortable({
+				items					:	'> .thumbnail',
+				forceHelperSize			:	true,
+				forcePlaceholderSize	:	true,
+				scroll					:	true,
+				start					:	function (event, ui) {
+				
+					// alter width / height to allow for 2px border
+					ui.placeholder.width( ui.placeholder.width() - 4 );
+					ui.placeholder.height( ui.placeholder.height() - 4 );
+					
+	   			}
+			});
+					
+		},
+		view : function( view ){
+			
+			this.o.view = view;
+			
+			this.render();
+			
+		},
+		render : function(){
+			
+			// vars
+			var count	=	this.$el.find('.thumbnails .thumbnail').length,
+				s		=	acf.l10n.gallery[ 'count_' + Math.min( count, 2) ].replace('%d', count),
+				$span	=	this.$el.find('.toolbar .count');
+			
+			
+			// update span text
+			$span.html( s );
+			
+			
+			// toolbar
+			if( this.o.view == 'list' )
+			{
+				this.$el.addClass('view-list');
+				this.$el.find('.toolbar .view-grid-li').removeClass('active');
+				this.$el.find('.toolbar .view-list-li').addClass('active');
+			}
+			else
+			{
+				this.$el.removeClass('view-list');
+				this.$el.find('.toolbar .view-grid-li').addClass('active');
+				this.$el.find('.toolbar .view-list-li').removeClass('active');
+			}
+			
+			
+			
+		},
+		add : function( image ){
+			
+			// IMPORTANT: this may not be the field we think it is. 
+			// Opening a popup will cause the acf/setup_fields action to run, and this may be updated with the fields found in the popup! 
+			// Reset this using the _media.div
+			
+			
+			// reset
+			this.set({ $el : _media.div });
+			
+			
+			// vars
+			var tmpl = this.$el.find('.tmpl-thumbnail').html();
+			
+			
+			// update tmpl
+			$.each(image, function( k, v ){
+				var regex = new RegExp('{' + k + '}', 'g');
+				tmpl = tmpl.replace(regex, v);
+			});
 		
 		
-		
-		// update vars on tmpl
-		$.each(image, function( k, v ){
-			var regex = new RegExp('{' + k + '}', 'g');
-			tpml = tpml.replace(regex, v);
-		});
-		
-	    
-	    // add div
-	    gallery.find('.thumbnails > .inner').append( tpml );
-		
-		
-		// update gallery count
-		_gallery.update_count( gallery );
-		
-			 	
-	 	// validation
-		gallery.closest('.field').removeClass('error');
-		
-	};
+			// add div
+		    this.$el.find('.thumbnails > .inner').append( tmpl );
+			
+			
+			// update gallery count
+			this.render();
+			
+				 	
+		 	// validation
+			this.$el.closest('.field').removeClass('error');
 	
-	
-	/*
-	*  Edit
-	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
-	*/
-	
-	_gallery.edit_image = function(){
-	
-	
-		// vars
-		var div = _media.div,
-			id = div.attr('data-id');
-		
-		
-		// show edit attachment
-		tb_show( acf.fields.image.text.title_edit , acf.admin_url + 'media.php?attachment_id=' + id + '&action=edit&acf_action=edit_attachment&acf_field=gallery&TB_iframe=1');
-		
-		
-	};
-	
-	
-	/*
-	*  Update Image
-	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
-	*/
-	
-	_gallery.update_image = function(){
-	
-	
-		// vars
-		var div = acf.media.div,
-			id = div.attr('data-id'),
-			ajax_data = {
-				action : 'acf/fields/gallery/get_image',
-				id : id,
-				nonce : acf.nonce
-			};
-		
-		
-		// ajax find new list data
-		$.ajax({
-			url: ajaxurl,
-			type: 'post',
-			data : ajax_data,
-			cache: false,
-			dataType: "json",
-			success: function( json ) {
-		    	
-	
+		},
+		edit : function( id ){
+			
+			// set global var
+			_media.div = this.$el;
+			
+
+			// clear the frame
+			_media.clear_frame();
+			
+			
+			// create the media frame
+			_media.frame = wp.media({
+				title		:	acf.l10n.gallery.edit,
+				multiple	:	false,
+				button		:	{ text : acf.l10n.gallery.update }
+			});
+			
+			
+			// open
+			_media.frame.on('open',function() {
+				
+				// set to browse
+				if( _media.frame.content._mode != 'browse' )
+				{
+					_media.frame.content.mode('browse');
+				}
+				
+				
+				// add class
+				_media.frame.$el.closest('.media-modal').addClass('acf-media-modal acf-expanded');
+			
+				// set selection
+				var selection	=	_media.frame.state().get('selection'),
+					attachment	=	wp.media.attachment( id );
+				
+				
+				attachment.fetch();
+				selection.add( attachment );
+				
+				
+				// change events for list view
+				_media.frame.$el.on('change', '.setting input, .setting textarea', function(){
+					
+					// vars
+					var $el = $(this),
+						setting = $el.closest('.setting').attr('data-setting');
+					
+					
+					// update galleries
+					$('.acf-gallery .thumbnail[data-id="' + id + '"] .td-' + setting).html( $el.val() );
+					
+				});
+							
+			});
+			
+			
+			// close
+			_media.frame.on('close',function(){
+			
+				// remove class
+				_media.frame.$el.closest('.media-modal').removeClass('acf-media-modal');
+				
+			});
+			
+							
+			// Finally, open the modal
+			_media.frame.open();
+			
+		},
+		remove : function( id ){
+			
+			// reference
+			var _this = this;
+			
+			
+			// vars
+			$thumb = this.$el.find('.thumbnails .thumbnail[data-id="' + id + '"]');
+			
+			
+			// fade and remove
+			$thumb.animate({ opacity : 0 }, 250, function(){
+				
+				$thumb.remove();
+				
+				_this.render();
+				
+			});
+			
+		},
+		render_collection : function(){
+			
+			// Note: Need to find a differen 'on' event. Now that attachments load custom fields, this function can't rely on a timeout. Instead, hook into a render function foreach item
+			
+			// set timeout for 0, then it will always run last after the add event
+			setTimeout(function(){
+			
+			
+			// vars
+			var $gallery	=	_media.div,
+				$content	=	_media.frame.content.get().$el
+
+				collection	=	_media.frame.content.get().collection || null;
+				
+			
+			if( collection )
+			{
+				var i = -1;
+				
+				collection.each(function( item ){
+					
+					i++;
+					
+					var $li = $content.find('.attachments > .attachment:eq(' + i + ')');
+					
+					
+					// if image is already inside the gallery, disable it!
+					if( $gallery.find('.thumbnails .thumbnail[data-id="' + item.id + '"]').exists() )
+					{
+						item.off('selection:single');
+						$li.addClass('acf-selected');
+					}
+					
+				});
+			}
+			
+			
+			}, 0);
+				
+		},
+		popup : function()
+		{
+			// reference
+			var _this = this;
+			
+			
+			// set global var
+			_media.div = this.$el;
+			
+
+			// clear the frame
+			_media.clear_frame();
+			
+			
+			 // Create the media frame
+			 _media.frame = wp.media({
+				states : [
+					new wp.media.controller.Library({
+						library		:	wp.media.query( this.o.query ),
+						multiple	:	true,
+						title		:	acf.l10n.gallery.select,
+						priority	:	20,
+						filterable	:	'all'
+					})
+				]
+			});
+			
+			
+			// customize model / view
+			_media.frame.on('content:activate', function(){
+				
+				// vars
+				var toolbar = null,
+					filters = null;
+					
+				
+				// populate above vars making sure to allow for failure
+				try
+				{
+					toolbar = _media.frame.content.get().toolbar;
+					filters = toolbar.get('filters');
+				} 
+				catch(e)
+				{
+					// one of the objects was 'undefined'... perhaps the frame open is Upload Files
+					//console.log( e );
+				}
+				
+				
 				// validate
-				if( !json )
+				if( !filters )
 				{
 					return false;
 				}
 				
 				
-				// update list-item html
-				$.each(json, function( k, v ){
-					if( div.find('.td-' + k).exists() )
-					{
-						div.find('.td-' + k).text( v );
-					}
-				});
-	 	
-			}
-		});
-		
-		
-	};
-	
-	
-	/*
-	*  Update Count
-	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
-	*/
-	
-	_gallery.update_count = function( div )
-	{
-		// vars
-		var count = div.find('.thumbnails .thumbnail').length,
-			max_count = ( count > 2 ) ? 2 : count,
-			span = div.find('.toolbar .count');
-		
-		
-		span.html( span.attr('data-' + max_count).replace('{count}', count) );
-		
-	}
-	
-	
-	/*
-	*  View: Grid
-	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
-	*/
-	
-	$('.acf-gallery .toolbar .view-grid').live('click', function(){
-		
-		// vars
-		var gallery = $(this).closest('.acf-gallery');
-		
-		
-		// active class
-		$(this).parent().addClass('active').siblings('.view-list-li').removeClass('active');
-		
-		
-		// gallery class
-		gallery.removeClass('view-list');
-		
-		
-		return false;
-			
-	});
-	
-	
-	/*
-	*  View: List
-	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
-	*/
-	
-	$('.acf-gallery .toolbar .view-list').live('click', function(){
-		
-		// vars
-		var gallery = $(this).closest('.acf-gallery');
-		
-		
-		// active class
-		$(this).parent().addClass('active').siblings('.view-grid-li').removeClass('active');
-		
-		
-		// gallery class
-		gallery.addClass('view-list');
-		
-		
-		return false;
-			
-	});
-	
-	
-	/*
-	*  Add Button
-	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
-	*/
-	
-	// add image
-	$('.acf-gallery .toolbar .add-image').live('click', function(){
-		
-		// vars
-		var div = _media.div = $(this).closest('.acf-gallery'),
-			preview_size = div.attr('data-preview_size');
-		
-
-		// show the thickbox
-		// show the thickbox
-		if( _media.type() == 'backbone' )
-		{
-			// clear the frame
-			_media.clear_frame();
-			
-			
-			// acf.media.frame.content.get().options.filters=true;
-			
-		    // Create the media frame. Leave options blank for defaults
-			_media.frame = wp.media({
-				title : _gallery.text.title_add,
-				multiple : true,
-				library : {
-					//type : 'image'
+				// no need for 'uploaded' filter
+				if( _this.o.library == 'uploadedTo' )
+				{
+					filters.$el.find('option[value="uploaded"]').remove();
+					filters.$el.after('<span>' + acf.l10n.gallery.uploadedTo + '</span>')
+					
+					$.each( filters.filters, function( k, v ){
+						
+						v.props.uploadedTo = acf.o.post_id;
+						
+					});
 				}
-			});
-			
-			
-			// add filter by overriding the option when the title is being created. This is an evet fired before the rendering / creating of the library content so it works but is a bit of a hack. In the future, this should be changed to an init / options event
-			_media.frame.on('title:create', function(){
-				var state = _media.frame.state();
-				state.set('filterable', 'uploaded');
+				
+				
+				// hide selected items from the library
+				_this.render_collection();
+				 
+				_media.frame.content.get().collection.on( 'reset add', function(){
+				    
+					_this.render_collection();
+				    
+			    });
+			    
+								
 			});
 			
 			
@@ -253,278 +379,157 @@
 				if( selection )
 				{
 					selection.each(function(attachment){
+	
 						
 						// is image already in gallery?
-						if( div.find('.thumbnails .thumbnail[data-id="' + attachment.id + '"]').exists() )
+						if( _this.$el.find('.thumbnails .thumbnail[data-id="' + attachment.id + '"]').exists() )
 						{
 							return;
 						}
+											
 						
-						
+				    	// vars
 				    	var image = {
-						    id : attachment.id,
-						    src : attachment.attributes.url,
-						    title : attachment.attributes.title,
-						    caption : attachment.attributes.caption,
-						    alt : attachment.attributes.alt,
-						    description : attachment.attributes.description
-					    };
+					    	id			:	attachment.id,
+					    	title		:	attachment.attributes.title,
+					    	name		:	attachment.attributes.filename,
+					    	url			:	attachment.attributes.url,
+					    	caption 	:	attachment.attributes.caption,
+						    alt			:	attachment.attributes.alt,
+						    description	:	attachment.attributes.description
+				    	};
 				    	
-					    
-					    // file?
+				    	
+				    	// file?
 					    if( attachment.attributes.type != 'image' )
 					    {
-						    image.src = attachment.attributes.icon;
+						    image.url = attachment.attributes.icon;
 					    }
 					    
 					    
-				    	// is preview size available?
-				    	if( attachment.attributes.sizes && attachment.attributes.sizes[ preview_size ] )
+					    // is preview size available?
+				    	if( attachment.attributes.sizes && attachment.attributes.sizes[ _this.o.preview_size ] )
 				    	{
-					    	image.src = attachment.attributes.sizes[ preview_size ].url;
+					    	image.url = attachment.attributes.sizes[ _this.o.preview_size ].url;
 				    	}
-				    	
-				    	
-				    	// add image to field
-				        _gallery.add( image );
+					    
+					    
+				    	// add file to field
+				        _this.add( image );
 				        
+						
 				    });
 				    // selection.each(function(attachment){
 				}
 				// if( selection )
+				
+				
 			});
 			// _media.frame.on( 'select', function() {
-				
-			_media.frame.on('content:create:browse', function( e ){
-				
-				/*
-acf.media.frame.content.get().collection.on( 'all', function( e ){
-				    console.log( 'collection: ' + e );
-			    });
-*/
-			    
-			});
+					 
 			
-			// log all events
-			_media.frame.on('all', function( e ){
-				
-				//console.log( 'frame: ' + e );
-			});
-			
-			_media.frame.on('content:activate:browse', function(){
-				
-				_gallery.hide_selected_items();
-				 
-				acf.media.frame.content.get().collection.on( 'reset add', function(){
-				    
-				    _gallery.hide_selected_items();
-				    
-			    });
-				
-				// event fired after a search
-				
-				/*
-acf.media.frame.content.get().collection.on( 'all', function( e ){
-				    console.log( 'collection: ' + e );
-			    });
-*/
-
-			 
-			 
-			}); 
-				
 			// Finally, open the modal
 			_media.frame.open();
-			
-			
-			/* // event fired when viewing "Media Library"
-			
-			
-			
-			
-			
-			// event fired when viewing "Upload Files"
-			acf.media.frame.on('content:activate:upload', function(){
-				$(document).trigger('acf/media/upload');
-			});
-	
-			// event fired when opening the media popup
-			acf.media.frame.on('open', function( e ){
 				
-				acf.media.frame.content.get().attachments.render();
-				acf.media.frame.reset();
-				$(document).trigger('acf/media/open');
-				
-				
-		    });
-		    
-		    acf.media.frame.on('reset', function( e ){
-				$(document).trigger('acf/media/reset');
-				
-				console.log('main reset');
-		    });
-		    
-		    
-		    // event fired when closing the media popup
-			acf.media.frame.on('close', function( e ){
-				
-				// clear the div
-				$(document).trigger('acf/media/close');
-		    });
-		    
-		    
-			// When an image is selected, run a callback.
-		    acf.media.frame.on('select', function()
-		    {
-		    	$(document).trigger('acf/media/select', [acf.media.frame.state().get('selection')]);
-		    }); */
-		}
-		else
-		{
-			tb_show( _gallery.text.title_add , acf.admin_url + 'media-upload.php?post_id=' + acf.post_id + '&post_ID=' + acf.post_id + '&type=image&acf_type=gallery&acf_preview_size=' + preview_size + 'TB_iframe=1');
+			
+			return false;
 		}
 		
-	
-		return false;
-					
-	});
+	};
 	
 	
 	/*
-	*  Edit Button
+	*  Events
 	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
+	*  jQuery events for this field
+	*
+	*  @type	function
+	*  @date	1/03/2011
+	*
+	*  @param	N/A
+	*  @return	N/A
 	*/
 	
-	$('.acf-gallery .thumbnail .acf-button-edit').live('click', function(){
+	$(document).on('click', '.acf-gallery .acf-button-edit', function( e ){
+		
+		e.preventDefault();
 		
 		// vars
-		_media.div = $(this).closest('.thumbnail');
+		var id = $(this).closest('.thumbnail').attr('data-id');
 		
-		_gallery.edit_image();
+		acf.fields.gallery.set({ $el : $(this).closest('.acf-gallery') }).edit( id );
 		
-		return false;
+		$(this).blur();
 			
 	});
 	
-	
-	/*
-	*  Remove Button
-	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
-	*/
-	
-	$('.acf-gallery .thumbnail .acf-button-delete').live('click', function(){
+	$(document).on('click', '.acf-gallery .acf-button-delete', function( e ){
+		
+		e.preventDefault();
 		
 		// vars
-		var thumbnail = $(this).closest('.thumbnail'),
-			gallery = thumbnail.closest('.acf-gallery');
+		var id = $(this).closest('.thumbnail').attr('data-id');
 		
+		acf.fields.gallery.set({ $el : $(this).closest('.acf-gallery') }).remove( id );
 		
-		thumbnail.animate({
-			opacity : 0
-		}, 250, function(){
-			
-			thumbnail.remove();
-			
-			_gallery.update_count( gallery );
-			
-		});
-		
-		return false;
+		$(this).blur();
 			
 	});
 	
+	$(document).on('click', '.acf-gallery .add-image', function( e ){
+		
+		e.preventDefault();
+		
+		acf.fields.gallery.set({ $el : $(this).closest('.acf-gallery') }).popup();
+		
+		$(this).blur();
+		
+	});
 	
+	$(document).on('click', '.acf-gallery .view-grid', function( e ){
+		
+		e.preventDefault();
+		
+		acf.fields.gallery.set({ $el : $(this).closest('.acf-gallery') }).view( 'grid' );
+		
+		$(this).blur();
+		
+	});
 	
-	_gallery.hide_selected_items = function(){
+	$(document).on('click', '.acf-gallery .view-list', function( e ){
 		
-		// set timeout for 0, then it will always run last after the add event
-		setTimeout(function(){
+		e.preventDefault();
 		
+		acf.fields.gallery.set({ $el : $(this).closest('.acf-gallery') }).view( 'list' );
 		
-		// vars
-		var gallery = _media.div,
-			div = _media.frame.content.get().$el;
-			collection = _media.frame.content.get().collection || null,
-			i = -1;
-			
+		$(this).blur();
 		
-		if( collection )
-		{
-			collection.each(function( item ){
-			
-				i++;
-				
-				var attachment = div.find('.attachments > .attachment:eq(' + i + ')');
-				
-				
-				// if image is already inside the gallery, disable it!
-				if( gallery.find('.thumbnails .thumbnail[data-id="' + item.id + '"]').exists() )
-				{
-					item.off('selection:single');
-					attachment.addClass('acf-selected');
-				}
-				
-			});
-		}
-		
-		
-		}, 0);
+	});
 	
-	}
-		
 	
 	/*
 	*  acf/setup_fields
 	*
-	*  @description: 
-	*  @since: 3.5.8
-	*  @created: 17/01/13
+	*  run init function on all elements for this field
+	*
+	*  @type	event
+	*  @date	20/07/13
+	*
+	*  @param	{object}	e		event object
+	*  @param	{object}	el		DOM object which may contain new ACF elements
+	*  @return	N/A
 	*/
 	
-	$(document).live('acf/setup_fields', function(e, postbox){
+	$(document).on('acf/setup_fields', function(e, el){
 		
-		$(postbox).find('.acf-gallery').each(function(i){
+		$(el).find('.acf-gallery').each(function(){
 			
-			// is clone field?
-			if( acf.helpers.is_clone_field($(this).children('input[type="hidden"]')) )
-			{
-				return;
-			}
-			
-			
-			// vars
-			var div = $(this),
-				thumbnails = div.find('.thumbnails');
-				
-			
-			// update count
-			_gallery.update_count( div );
-
-			
-			// sortable
-			thumbnails.find('> .inner').sortable({
-				items : '> .thumbnail',
-				/* handle: '> td.order', */
-				forceHelperSize: true,
-				forcePlaceholderSize: true,
-				scroll: true,
-				start: function (event, ui) {
-				
-					// alter width / height to allow for 2px border
-					ui.placeholder.width( ui.placeholder.width() - 4 );
-					ui.placeholder.height( ui.placeholder.height() - 4 );
-	   			}
-			});
-
+			acf.fields.gallery.set({ $el : $(this) }).init();
 			
 		});
-	
+		
 	});
+	
+	
 
 })(jQuery);

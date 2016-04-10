@@ -3,17 +3,19 @@ Contributors: elliotcondon
 Author: Elliot Condon
 Author URI: http://www.elliotcondon.com
 Plugin URI: http://www.advancedcustomfields.com
-Requires at least: 3.0
+Requires at least: 3.5
 Tested up to: 3.5.1
 Stable tag: trunk
 Homepage: http://www.advancedcustomfields.com/add-ons/gallery-field/
-Version: 1.0.0
+Version: 1.1.1
 
 
 == Copyright ==
 Copyright 2011 - 2013 Elliot Condon
 
-This software is NOT to be distributed, but can be INCLUDED in WP themes: Premium or Contracted.
+This software is NOT to be distributed, but can be INCLUDED in WP themes and Plugins: Premium or Contracted.
+If you include this software within a premium theme or premium plugin, you MUST remove the acf-gallery-update.php file from the folder.
+
 This software is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -43,18 +45,25 @@ However, only when activated as a plugin will updates be available/
 2. Edit your functions.php file and add the following code to include the field:
 
 `
-add_action('acf/register_fields', 'my_register_fields');
+include_once('acf-gallery/acf-gallery.php');
 
-function my_register_fields()
-{
-	include_once('acf-gallery/gallery.php');
-}
 `
 
-3. Make sure the path is correct to include the gallery.php file
+3. Make sure the path is correct to include the acf-gallery.php file
+4. Remove the acf-gallery-update.php file from the folder.
 
 
 == Changelog ==
+
+= 1.1.1 =
+* Fixed Bug where upload popup would appear when editing an image
+
+= 1.1.0 =
+* IMPORTANT: ACF Gallery Field now requires a minimum WordPress version of 3.5.0
+* IMPORTANT: If you are using this add-on within a premium theme / plugin, you MUST remove the update file
+* Added uploadedTo option to match image / file fields
+* Major re-write of the JS to comply with newer jQuery versions
+* Improved value returned by get_field: Files and images will now return slightly different and more relevant data
 
 = 1.0.0 =
 * Official Release

@@ -1,0 +1,788 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: GT3Themes WP\n"
+"POT-Creation-Date: 2015-01-05 09:41+0200\n"
+"PO-Revision-Date: 2015-01-05 09:41+0200\n"
+"Last-Translator: \n"
+"Language-Team: GT3Themes <help@gt3themes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: __;_e;_\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:4
+msgid "404"
+msgstr ""
+
+#: 404.php:6
+msgid "Search the Site"
+msgstr ""
+
+#: 404.php:7
+msgid "Search"
+msgstr ""
+
+#: comments.php:4
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: comments.php:24
+msgid "Comments"
+msgstr ""
+
+#: comments.php:48
+msgid "Name *"
+msgstr ""
+
+#: comments.php:49
+msgid "Email *"
+msgstr ""
+
+#: comments.php:50
+msgid "URL"
+msgstr ""
+
+#: comments.php:52
+msgid "Message..."
+msgstr ""
+
+#: comments.php:55
+msgid "You must be logged in to post a comment."
+msgstr ""
+
+#: comments.php:56
+msgid "Leave a Comment!"
+msgstr ""
+
+#: comments.php:57
+msgid "Post Comment"
+msgstr ""
+
+#: comments.php:58
+msgid "Logged in as"
+msgstr ""
+
+#: comments.php:58
+msgid "Log out?"
+msgstr ""
+
+#: comments.php:63
+msgid "Sorry, the comment form is closed at this time."
+msgstr ""
+
+#: core/admin/options.php:6
+msgid "General"
+msgstr ""
+
+#: core/admin/options.php:13
+msgid "Header logo"
+msgstr ""
+
+#: core/admin/options.php:19
+msgid "Logo (Retina)"
+msgstr ""
+
+#: core/admin/options.php:25
+msgid "Header logo width"
+msgstr ""
+
+#: core/admin/options.php:33
+msgid "Header logo height"
+msgstr ""
+
+#: core/admin/options.php:42
+msgid "Favicon"
+msgstr ""
+
+#: core/admin/options.php:49
+msgid "Apple touch icon (57px)"
+msgstr ""
+
+#: core/admin/options.php:56
+msgid "Apple touch icon (72px)"
+msgstr ""
+
+#: core/admin/options.php:63
+msgid "Apple touch icon (114px)"
+msgstr ""
+
+#: core/admin/options.php:69
+msgid "Google analytics or any other code<br>(before &lt;/head&gt;)"
+msgstr ""
+
+#: core/admin/options.php:74
+msgid "Any code <br>(before &lt;/body&gt;)"
+msgstr ""
+
+#: core/admin/options.php:79
+msgid "Copyright"
+msgstr ""
+
+#: core/admin/options.php:86
+msgid "Import demo content"
+msgstr ""
+
+#: core/admin/options.php:95
+msgid "Sidebars"
+msgstr ""
+
+#: core/admin/options.php:102
+msgid "Default sidebar layout"
+msgstr ""
+
+#: core/admin/options.php:107
+msgid "Left sidebar"
+msgstr ""
+
+#: core/admin/options.php:108
+msgid "Right sidebar"
+msgstr ""
+
+#: core/admin/options.php:109
+msgid "Without sidebar"
+msgstr ""
+
+#: core/admin/options.php:113
+msgid "Sidebar manager"
+msgstr ""
+
+#: core/admin/options.php:120
+msgid "Fonts"
+msgstr ""
+
+#: core/admin/options.php:127
+msgid "Content font"
+msgstr ""
+
+#: core/admin/options.php:134
+msgid "Main font parameters"
+msgstr ""
+
+#: core/admin/options.php:143
+msgid "Main menu font"
+msgstr ""
+
+#: core/admin/options.php:150
+msgid "Main menu font parameters"
+msgstr ""
+
+#: core/admin/options.php:159
+msgid "Headers"
+msgstr ""
+
+#: core/admin/options.php:166
+msgid "Headers font parameters"
+msgstr ""
+
+#: core/admin/options.php:175
+msgid "Content font weight"
+msgstr ""
+
+#: core/admin/options.php:184
+msgid "Headings font weight"
+msgstr ""
+
+#: core/admin/options.php:193
+msgid "Main menu font size"
+msgstr ""
+
+#: core/admin/options.php:202
+msgid "H1 font size"
+msgstr ""
+
+#: core/admin/options.php:211
+msgid "H2 font size"
+msgstr ""
+
+#: core/admin/options.php:220
+msgid "H3 font size"
+msgstr ""
+
+#: core/admin/options.php:229
+msgid "H4 font size"
+msgstr ""
+
+#: core/admin/options.php:238
+msgid "H5 font size"
+msgstr ""
+
+#: core/admin/options.php:247
+msgid "H6 font size"
+msgstr ""
+
+#: core/admin/options.php:256
+msgid "Content font size"
+msgstr ""
+
+#: core/admin/options.php:265
+msgid "Content line height"
+msgstr ""
+
+#: core/admin/options.php:277
+msgid "Socials"
+msgstr ""
+
+#: core/admin/options.php:283
+msgid "Facebook"
+msgstr ""
+
+#: core/admin/options.php:289
+msgid "Flickr"
+msgstr ""
+
+#: core/admin/options.php:295
+msgid "Tumblr"
+msgstr ""
+
+#: core/admin/options.php:301
+msgid "Instagram"
+msgstr ""
+
+#: core/admin/options.php:307
+msgid "Twitter"
+msgstr ""
+
+#: core/admin/options.php:314
+msgid "Youtube"
+msgstr ""
+
+#: core/admin/options.php:320
+msgid "Dribbble"
+msgstr ""
+
+#: core/admin/options.php:326
+msgid "Google+"
+msgstr ""
+
+#: core/admin/options.php:332
+msgid "Vimeo"
+msgstr ""
+
+#: core/admin/options.php:338
+msgid "Delicious"
+msgstr ""
+
+#: core/admin/options.php:344
+msgid "Linked In"
+msgstr ""
+
+#: core/admin/options.php:350
+msgid "Pinterest"
+msgstr ""
+
+#: core/admin/options.php:359
+msgid "Contacts"
+msgstr ""
+
+#: core/admin/options.php:365
+msgid "Send mails to"
+msgstr ""
+
+#: core/admin/options.php:370
+msgid "Phone number"
+msgstr ""
+
+#: core/admin/options.php:378
+msgid "View Options"
+msgstr ""
+
+#: core/admin/options.php:384
+msgid "Responsive"
+msgstr ""
+
+#: core/admin/options.php:389 core/admin/options.php:436
+msgid "On"
+msgstr ""
+
+#: core/admin/options.php:390 core/admin/options.php:437
+msgid "Off"
+msgstr ""
+
+#: core/admin/options.php:394
+msgid "Theme color"
+msgstr ""
+
+#: core/admin/options.php:402
+msgid "Default background image"
+msgstr ""
+
+#: core/admin/options.php:409
+msgid "404 page background image"
+msgstr ""
+
+#: core/admin/options.php:415
+msgid "Fullscreen blog Items per page"
+msgstr ""
+
+#: core/admin/options.php:423
+msgid "Fullscreen Portfolio Items per page"
+msgstr ""
+
+#: core/admin/options.php:431
+msgid "Related Posts"
+msgstr ""
+
+#: core/admin/options.php:441
+msgid "Default portfolio posts style"
+msgstr ""
+
+#: core/admin/options.php:446
+msgid "Fullscreen Slider"
+msgstr ""
+
+#: core/admin/options.php:447
+msgid "Fullscreen Ribbon"
+msgstr ""
+
+#: core/admin/options.php:448
+msgid "Simple"
+msgstr ""
+
+#: core/admin/options.php:452
+msgid "Portfolio comments"
+msgstr ""
+
+#: core/admin/options.php:457 core/admin/options.php:467
+msgid "Disabled"
+msgstr ""
+
+#: core/admin/options.php:458 core/admin/options.php:468
+msgid "Enabled"
+msgstr ""
+
+#: core/admin/options.php:462
+msgid "Page comments"
+msgstr ""
+
+#: core/admin/options.php:472
+msgid "Custom CSS"
+msgstr ""
+
+#: core/admin/options.php:479
+msgid "Gallery Options"
+msgstr ""
+
+#: core/admin/options.php:485
+msgid "Fit Style"
+msgstr ""
+
+#: core/admin/options.php:490
+msgid "Cover Slide"
+msgstr ""
+
+#: core/admin/options.php:491
+msgid "Fit Always"
+msgstr ""
+
+#: core/admin/options.php:492
+msgid "Fit Horizontal"
+msgstr ""
+
+#: core/admin/options.php:493
+msgid "Fit Vertical"
+msgstr ""
+
+#: core/admin/options.php:497
+msgid "Show Controls"
+msgstr ""
+
+#: core/admin/options.php:502 core/admin/options.php:512
+msgid "Yes"
+msgstr ""
+
+#: core/admin/options.php:503 core/admin/options.php:513
+msgid "No"
+msgstr ""
+
+#: core/admin/options.php:507
+msgid "Autoplay"
+msgstr ""
+
+#: core/admin/options.php:517
+msgid "Slide Interval In Milliseconds"
+msgstr ""
+
+#: core/admin/options.php:527
+msgid "Color options"
+msgstr ""
+
+#: core/admin/options.php:533
+msgid "Header background color"
+msgstr ""
+
+#: core/admin/options.php:540
+msgid "Header text color"
+msgstr ""
+
+#: core/admin/options.php:547
+msgid "Main menu text color"
+msgstr ""
+
+#: core/admin/options.php:554
+msgid "Sub-menu text color"
+msgstr ""
+
+#: core/admin/options.php:561
+msgid "Sub-menu border"
+msgstr ""
+
+#: core/admin/options.php:568
+msgid "Body background color"
+msgstr ""
+
+#: core/admin/options.php:575
+msgid "Main text color"
+msgstr ""
+
+#: core/admin/options.php:582
+msgid "Heading color"
+msgstr ""
+
+#: core/admin/options.php:589
+msgid "Content block background color"
+msgstr ""
+
+#: core/admin/options.php:596
+msgid "Footer copyright color"
+msgstr ""
+
+#: core/registrator/ajax-handlers.php:660
+msgid "Time spent"
+msgstr ""
+
+#: core/registrator/misc.php:49
+msgid "Custom Sidebars"
+msgstr ""
+
+#: core/registrator/misc.php:98
+msgid "Custom Layout"
+msgstr ""
+
+#: core/registrator/sidebars.php:9
+msgid ""
+"Add the widgets appearance for Custom Sidebar. Drag the widget from the "
+"available list on the left, configure widgets options and click Save button. "
+"Select the sidebar on the posts or pages in just few clicks."
+msgstr ""
+
+#: core/registrator/sidebars.php:18
+msgid ""
+"Add the widgets to display them in the Side Menu. Drag the widget from the "
+"available list on the left, configure widgets options and click Save button. "
+"They will appear below the menu items list."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:161 core/tgm/gt3-tgm.php:40
+msgid "Install Required Plugins"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:162 core/tgm/gt3-tgm.php:41
+msgid "Install Plugins"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:163 core/tgm/gt3-tgm.php:42
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:164
+msgid "Something went wrong."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:175 core/tgm/gt3-tgm.php:54
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:176
+msgid "Return to the dashboard"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:177
+#: core/tgm/class-tgm-plugin-activation.php:1943 core/tgm/gt3-tgm.php:55
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:178
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:179
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:180
+msgid "Dismiss this notice"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:533
+#: core/tgm/class-tgm-plugin-activation.php:2160
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1168
+msgid "Private Repository"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1171
+msgid "Pre-Packaged"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1176
+msgid "WordPress Repository"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1179
+msgid "Required"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1179
+msgid "Recommended"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1182
+msgid "Not Installed"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1184
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1289
+#: core/tgm/class-tgm-plugin-activation.php:1397
+msgid "Install"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1311
+#: core/tgm/class-tgm-plugin-activation.php:1398
+msgid "Activate"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1360
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1376
+msgid "Plugin"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1377
+msgid "Source"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1378
+msgid "Type"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1379
+msgid "Status"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1926
+msgid "Install package not available."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1927
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1928
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1929
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1930
+msgid "Plugin install failed."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1931
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:1942
+msgid "Plugin activation failed."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2056
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2057
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2057
+#: core/tgm/class-tgm-plugin-activation.php:2066
+msgid "Show Details"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2057
+#: core/tgm/class-tgm-plugin-activation.php:2066
+msgid "Hide Details"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2058
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2059
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2063
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2064
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2065
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2066
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2067
+msgid "All installations have been completed."
+msgstr ""
+
+#: core/tgm/class-tgm-plugin-activation.php:2068
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: core/tgm/gt3-tgm.php:43
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: core/tgm/gt3-tgm.php:56
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: core/widgets/posts.php:26 page-center.php:26 page.php:19
+#: single-port.php:145 single-port.php:503 single.php:78
+msgid "Read more!"
+msgstr ""
+
+#: functions.php:134
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions.php:350
+msgid "All"
+msgstr ""
+
+#: functions.php:526
+msgid "TO VIEW IT PLEASE ENTER YOUR PASSWORD"
+msgstr ""
+
+#: functions.php:586
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: header-fullscreen.php:58
+msgid "Filter"
+msgstr ""
+
+#: image.php:70
+#, php-format
+msgid ""
+"<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" "
+"rel=\"gallery\">%5$s</a></span>"
+msgstr ""
+
+#: image.php:88
+msgid "Full resolution"
+msgstr ""
+
+#: image.php:93
+msgid "Edit"
+msgstr ""
+
+#: image.php:100
+msgid "Pages:"
+msgstr ""
+
+#: image.php:107
+msgid "Back"
+msgstr ""
+
+#: page-albums.php:145 page-background.php:129 page-blog-fullscreen.php:151
+#: page-center.php:77 page-countdown.php:111 page-fullscreen-slider.php:184
+#: page-gallery-grid.php:210 page-gallery-kenburns.php:68
+#: page-gallery-masonry.php:223 page-gallery-ribbon.php:160
+#: page-portfolio-grid-block.php:173 page-portfolio-grid.php:181
+#: page-portfolio-masonry-block.php:186 page-portfolio-masonry.php:193
+#: page.php:63 single-gallery.php:212 single-port.php:787 single.php:191
+msgid "THIS CONTENT IS PASSWORD PROTECTED"
+msgstr ""
+
+#: page-center.php:27 page.php:20 single-port.php:147 single-port.php:504
+#: single.php:80
+msgid "Pages"
+msgstr ""
+
+#: page-countdown.php:50
+msgid "Date has not been entered"
+msgstr ""
+
+#: page-fullscreen-slider.php:153 single-gallery.php:180
+msgid "No images found"
+msgstr ""
+
+#: page-portfolio-grid-block.php:116 page-portfolio-grid.php:115
+#: page-portfolio-masonry-block.php:116 page-portfolio-masonry.php:115
+msgid "Load more works"
+msgstr ""
+
+#: search.php:58 search.php:84 single-port.php:111 single.php:44
+msgid "comments"
+msgstr ""
+
+#: search.php:98
+msgid "Oops!"
+msgstr ""
+
+#: search.php:98
+msgid "Not Found!"
+msgstr ""
+
+#: search.php:105 searchform.php:2
+msgid "Search the site..."
+msgstr ""
+
+#: single.php:88
+msgid "About the Author"
+msgstr ""
+
+#: single.php:146
+msgid "Related Works"
+msgstr ""

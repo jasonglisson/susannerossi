@@ -70,53 +70,7 @@ function pagebuilder_inner_custom_box($post)
 #START BUILDER AREA
     if (in_array($now_post_type, $GLOBALS["pbconfig"]['pb_modules_enabled_for'])) {
         echo "
-<div class='pb-cont page-builder-container bbg'>
-    <div class='padding-cont main_descr'>" . __("You can use this drag and drop page builder to create unlimited custom page layouts. It is too simple, just click any module below, adjust your own settings and preview the page. That's all.", "gt3_builder") . "</div>
-    <div>
-        <div class='hideable-content'>
-            <div class='padding-cont'>
-                <div class='available-modules-cont'>
-                    " . get_html_all_available_pb_modules($gt3_modules) . "
-                </div>
-                <div class='clear'></div>
-            </div>
-            <div class='pb-list-active-modules'>
-                <div class='padding-cont'>
-                    <ul class='sortable-modules'>
-                    ";
 
-        if (isset($gt3_theme_pagebuilder['modules']) && is_array($gt3_theme_pagebuilder['modules'])) {
-            foreach ($gt3_theme_pagebuilder['modules'] as $moduleid => $module) {
-                if ($module['size'] == "block_1_4") {
-                    $size_caption = "1/4";
-                }
-                if ($module['size'] == "block_1_3") {
-                    $size_caption = "1/3";
-                }
-                if ($module['size'] == "block_1_2") {
-                    $size_caption = "1/2";
-                }
-                if ($module['size'] == "block_2_3") {
-                    $size_caption = "2/3";
-                }
-                if ($module['size'] == "block_3_4") {
-                    $size_caption = "3/4";
-                }
-                if ($module['size'] == "block_1_1") {
-                    $size_caption = "1/1";
-                }
-                echo get_pb_module($module['name'], $module['caption'], $moduleid, $gt3_theme_pagebuilder, $module['size'], $size_caption, $tinymce_activation_class);
-            }
-        }
-
-        echo "
-                    </ul>
-                    <div class='clear'></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 ";
     }
 #END BUILDER AREA
