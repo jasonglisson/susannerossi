@@ -6,9 +6,9 @@
 <head>
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>">
     <?php echo((gt3_get_theme_option("responsive") == "on") ? '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">' : ''); ?>
-    <meta property="og:title" content="SuzanneRossi.com">
+    <meta property="og:title" content="SuzanneRossiPhotography.com">
 		<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/fb-share.jpg"/>
-		<meta property="og:site_name" content="SuzanneRossi.com">
+		<meta property="og:site_name" content="SuzanneRossiPhotography.com">
 		<meta property="og:description" content="State and National Award Winning Photographer - Suzanne Rossi - Fredericksburg, Virginia">		   
     <link rel="shortcut icon" href="<?php echo gt3_get_theme_option('favicon'); ?>" type="image/x-icon">
     <link rel="apple-touch-icon" href="<?php echo gt3_get_theme_option('apple_touch_57'); ?>">
