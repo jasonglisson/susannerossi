@@ -1,0 +1,154 @@
+[06-May-2016 00:05:29 UTC] ERROR PostmanManageConfigurationAjaxHandler: Array
+(
+    [0] => PostmanWizardSocket Object
+        (
+            [hostname] => www.googleapis.com
+            [hostnameDomainOnly] => googleapis.com
+            [port] => 443
+            [protocol] => HTTPS
+            [secure] => 1
+            [mitm] => 
+            [reportedHostname] => www.googleapis.com
+            [reportedHostnameDomainOnly] => googleapis.com
+            [message] => 
+            [startTls] => 
+            [authPlain] => 
+            [auth_login] => 
+            [auth_crammd5] => 
+            [auth_xoauth] => 
+            [auth_none] => 
+            [try_smtps] => 
+            [success] => 1
+            [transport] => gmail_api
+            [label] => 
+            [id] => www.googleapis.com_443
+        )
+
+    [1] => PostmanWizardSocket Object
+        (
+            [hostname] => mandrillapp.com
+            [hostnameDomainOnly] => mandrillapp.com
+            [port] => 443
+            [protocol] => HTTPS
+            [secure] => 1
+            [mitm] => 
+            [reportedHostname] => mandrillapp.com
+            [reportedHostnameDomainOnly] => mandrillapp.com
+            [message] => 
+            [startTls] => 
+            [authPlain] => 
+            [auth_login] => 
+            [auth_crammd5] => 
+            [auth_xoauth] => 
+            [auth_none] => 
+            [try_smtps] => 
+            [success] => 1
+            [transport] => mandrill_api
+            [label] => 
+            [id] => mandrillapp.com_443
+        )
+
+    [2] => PostmanWizardSocket Object
+        (
+            [hostname] => api.sendgrid.com
+            [hostnameDomainOnly] => sendgrid.com
+            [port] => 443
+            [protocol] => HTTPS
+            [secure] => 1
+            [mitm] => 
+            [reportedHostname] => api.sendgrid.com
+            [reportedHostnameDomainOnly] => sendgrid.com
+            [message] => 
+            [startTls] => 
+            [authPlain] => 
+            [auth_login] => 
+            [auth_crammd5] => 
+            [auth_xoauth] => 
+            [auth_none] => 
+            [try_smtps] => 
+            [success] => 1
+            [transport] => sendgrid_api
+            [label] => 
+            [id] => api.sendgrid.com_443
+        )
+
+    [3] => PostmanWizardSocket Object
+        (
+            [hostname] => smtp.gmail.com
+            [hostnameDomainOnly] => gmail.com
+            [port] => 25
+            [protocol] => 
+            [secure] => 
+            [mitm] => 
+            [reportedHostname] => 
+            [reportedHostnameDomainOnly] => 
+            [message] => 
+            [startTls] => 
+            [authPlain] => 
+            [auth_login] => 
+            [auth_crammd5] => 
+            [auth_xoauth] => 
+            [auth_none] => 
+            [try_smtps] => 
+            [success] => 
+            [transport] => smtp
+            [label] => 
+            [id] => smtp.gmail.com_25
+        )
+
+    [4] => PostmanWizardSocket Object
+        (
+            [hostname] => smtp.gmail.com
+            [hostnameDomainOnly] => gmail.com
+            [port] => 587
+            [protocol] => 
+            [secure] => 
+            [mitm] => 
+            [reportedHostname] => 
+            [reportedHostnameDomainOnly] => 
+            [message] => 
+            [startTls] => 
+            [authPlain] => 
+            [auth_login] => 
+            [auth_crammd5] => 
+            [auth_xoauth] => 
+            [auth_none] => 
+            [try_smtps] => 
+            [success] => 
+            [transport] => smtp
+            [label] => 
+            [id] => smtp.gmail.com_587
+        )
+
+    [5] => PostmanWizardSocket Object
+        (
+            [hostname] => smtp.gmail.com
+            [hostnameDomainOnly] => gmail.com
+            [port] => 465
+            [protocol] => 
+            [secure] => 
+            [mitm] => 
+            [reportedHostname] => 
+            [reportedHostnameDomainOnly] => 
+            [message] => 
+            [startTls] => 
+            [authPlain] => 
+            [auth_login] => 
+            [auth_crammd5] => 
+            [auth_xoauth] => 
+            [auth_none] => 
+            [try_smtps] => 
+            [success] => 
+            [transport] => smtp
+            [label] => 
+            [id] => smtp.gmail.com_465
+        )
+
+)
+
+[06-May-2016 00:05:29 UTC] ERROR PostmanManageConfigurationAjaxHandler: Gmail API
+[06-May-2016 00:05:29 UTC] ERROR PostmanManageConfigurationAjaxHandler: Mandrill API
+[06-May-2016 00:05:29 UTC] ERROR PostmanManageConfigurationAjaxHandler: SendGrid API
+[06-May-2016 00:05:29 UTC] ERROR PostmanManageConfigurationAjaxHandler: 
+[06-May-2016 00:05:29 UTC] ERROR PostmanManageConfigurationAjaxHandler: 
+[06-May-2016 00:05:29 UTC] ERROR PostmanManageConfigurationAjaxHandler: 
